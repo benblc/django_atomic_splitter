@@ -24,9 +24,9 @@ import os
 SECRET_KEY = os.environ.get('DJANGO_SECRET_KEY', 'j*h^_2b*$7ii4$z(cy@_zojs$!1b_#uou_b4o1b=t$%66+uw!_')
 
 # SECURITY WARNING: don't run with debug turned on in production!
-DEBUG = True
+DEBUG = False
 
-ALLOWED_HOSTS = []
+ALLOWED_HOSTS = ['intense-basin-05890.herokuapp.com', 'http://127.0.0.1']
 
 # Application definition
 
