@@ -20,6 +20,6 @@ class Atom(models.Model):
     atom_number = models.IntegerField(default=0)
 
     def __str__(self):
-        return self.answer_text + str(self.atom_number)
+        return self.atom_text + str(self.atom_number)
 
 

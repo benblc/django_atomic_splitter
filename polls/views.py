@@ -24,21 +24,21 @@ def results(request, answer_id):
     answer = get_object_or_404(Answer, pk=answer_id)
     composition_dic = eval(answer.answer_composition)
 
-    for key,value in composition_dic.items():
-        answer.atom_set.create(atom_text=key, atom_number=value)
+    if not answer.atom_set.all(): # Avoid reprinting on page refresh
+        for key,value in composition_dic.items():
+            answer.atom_set.create(atom_text=key, atom_number=value)
 
     return render(request, 'polls/results.html', {'answer': answer})
 
 def vote(request):
     question = get_object_or_404(Question)
 
-    # TODO full test ici
     try:
         selected_molecule = request.POST['molecule']
     except KeyError:
         return render(request, 'polls/detail.html', {
             'question': question,
-            'error_message': "First catch caught something.",
+            'error_message': "No molecule has been found, please enter a valid one.",
         })
 
     else:
