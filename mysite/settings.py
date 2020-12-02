@@ -26,7 +26,7 @@ SECRET_KEY = os.environ.get('DJANGO_SECRET_KEY', 'j*h^_2b*$7ii4$z(cy@_zojs$!1b_#
 # SECURITY WARNING: don't run with debug turned on in production!
 DEBUG = False
 
-ALLOWED_HOSTS = ['intense-basin-05890.herokuapp.com', 'http://127.0.0.1']
+ALLOWED_HOSTS = ['intense-basin-05890.herokuapp.com', '127.0.0.1', 'localhost']
 
 # Application definition
 
@@ -126,7 +126,7 @@ DATABASES['default'].update(db_from_env)
 # https://docs.djangoproject.com/en/3.1/howto/static-files/
 
 # The absolute path to the directory where collectstatic will collect static files for deployment.
-STATIC_ROOT = BASE_DIR / 'staticfiles'  #. os.path.join(BASE_DIR, 'staticfiles')
+STATIC_ROOT = BASE_DIR / 'polls/static'  #. os.path.join(BASE_DIR, 'staticfiles')
 
 # The URL to use when referring to static files (where they will be served from)
 STATIC_URL = '/static/'
