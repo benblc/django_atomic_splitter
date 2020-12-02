@@ -1,0 +1,36 @@
+<!DOCTYPE html>
+{% load static %}
+
+<link rel="stylesheet" type="text/css" href="{% static 'polls/style.css' %}">
+
+<html>
+  <head>
+    <meta charset="utf-8">
+    <title>results</title>
+  </head>	
+  <body>
+  <div class="gap-200"></div>
+	<div class="content">
+		<div class="container">
+			<div class="gap-30"></div>
+			<div id="blackbox"><h1>{{ answer.answer_text }}</h1> </div>
+			{% if error_message %}<p><strong>{{ error_message }}</strong></p>{% endif %}
+			
+			<div class="gap-10"></div>
+			<img src="{% static 'polls/images/atom.jpg' %}" alt="Atom">
+			
+		<ul class = "list">
+		{% for atom in answer.atom_set.all %}
+			
+			<li>{{ atom.atom_text }} <img src="{% static 'polls/images/arrow.jpg' %}" alt="arrow"> {{ atom.atom_number }}</li>
+		{% endfor %}
+		</ul>
+
+	<a href="{% url 'polls:detail' %}">Try another one ?</a>
+		<div class="gap-30"></div>
+		<div class="gap-30"></div>
+		</div>
+	</div>
+  </body>
+  
+</html>
